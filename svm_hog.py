@@ -137,19 +137,17 @@ svm.setKernel(cv2.ml.SVM_LINEAR)
 
 svm.setNu(0.5)####0.5
 
-svm.setP(0.1)  # for EPSILON_SVR, epsilon in loss function?
+svm.setP(0.1)  
 
-svm.setC(0.01)  # From paper, soft classifier
+svm.setC(0.01)
 
-svm.setType(cv2.ml.SVM_EPS_SVR)  # C_SVC # EPSILON_SVR # may be also NU_SVR # do regression task
+svm.setType(cv2.ml.SVM_EPS_SVR)
 
 svm.train(np.array(gradient_lst), cv2.ml.ROW_SAMPLE, np.array(labels))
 
  
 
 # 第三步：加入识别错误的样本，进行第二轮训练
-
-# 参考 http://masikkk.com/article/SVM-HOG-HardExample/
 
 hog = cv2.HOGDescriptor()
 '''(winSize=(227,227), 
